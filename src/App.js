@@ -4,17 +4,7 @@ import TodoForm from './components/TodoForm.js';
 import './App.css';
 
 
-const myTasks = [
-  {
-    task: 'Organized Garage',
-    id : 1528817077286,
-    completed: false,
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false,
-  }, 
+const myTasks = [ 
   {
     task: 'Painting House',
     id: Date.now(),
@@ -53,11 +43,21 @@ class App extends React.Component {
     this.setState({...this.state, tasks : [...this.state.tasks, newTaskObj]})
   }
 
+  clearItem = () => {
+    const updatedArray = this.state.tasks.filter(item => {
+      if(!item.completed) {
+        return item;
+      }
+      return "";
+    })
+    this.setState({...this.state, tasks : updatedArray});
+  }
+
   render() {
     return (
       <div>
         <h2>My Todo App!</h2>
-        <TodoForm addItem = {this.addItem}/>
+        <TodoForm addItem = {this.addItem} clearItem = {this.clearItem}/>
         <h4>Below are the tasks on my list:</h4>
         <TodoList tasks = {this.state.tasks} toggleStrike = {this.toggleStrikeFunction}/>
       </div>
