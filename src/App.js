@@ -32,12 +32,24 @@ class App extends React.Component {
       tasks: myTasks,
     };
   }
+
+  toggleStrikeFunction = (taskID) => {
+    const newTaskList = this.state.tasks.map(task => {
+      if(taskID === task.id) {
+        return({...task, completed : !task.completed});
+      } else {
+        return task;
+      }
+    })
+    this.setState({...this.state, tasks : newTaskList});
+  }
+  
   render() {
     return (
       <div>
         <h2>My Todo App!</h2>
         <h4>Below are the tasks on my list:</h4>
-        <TodoList tasks = {this.state.tasks}/>
+        <TodoList tasks = {this.state.tasks} toggleStrike = {this.toggleStrikeFunction}/>
       </div>
     );
   }
