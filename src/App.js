@@ -55,10 +55,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>My Todo App!</h2>
+      <div className="container mx-auto md flex flex-col items-start justify-evenly m-2">
+        <h1 className="font-bold self-center tracking-wide font-black text-4xl m-3">My Todo App</h1>
         <TodoForm addItem = {this.addItem} clearItem = {this.clearItem}/>
-        <h4>Below are the tasks on my list:</h4>
+        <h4 className="self-center font-black">Tasks currently on my list:</h4>
         <TodoList tasks = {this.state.tasks} toggleStrike = {this.toggleStrikeFunction}/>
       </div>
     );

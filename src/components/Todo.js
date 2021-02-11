@@ -8,7 +8,7 @@ const Todo = (props) => {
     return (
         //Below class will be condionally applied 
         <div className = {!props.item.completed ? 'notCompleted' : 'completed'}>
-            <p onClick={checkFunction}>{props.item.task}</p>
+            <p onClick={checkFunction} className="p-1">{props.item.task}</p>
         </div>
     )
 }

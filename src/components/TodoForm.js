@@ -21,13 +21,12 @@ class TodoForm extends React.Component {
 
     render() {
         return(
-            <div>
-                Hello from Form!
-                <form onSubmit={this.addNewItem}>
+            <div className="flex flex-col m-2">
+                <form onSubmit={this.addNewItem} className="flex flex-col m-3 border-2 rounded border-double border-pink-900 p-6">
                     <input name="inputValue" value={this.state.inputValue} onChange={this.captureInput}/>
-                    <button>Add To-Do Item</button>
+                    <button className="text-sm border-2 rounded border-double border-pink-900 text-indigo-400 bg-pink-900 m-2">Add To-Do Item</button>
                 </form>
-                <button onClick={this.props.clearItem}>Clear Checked Item</button>
+                <button onClick={this.props.clearItem} className=" text-sm self-center border-2 rounded border-double border-pink-900 text-indigo-400 bg-pink-900">Clear Checked Item</button>
             </div>
         )
     }

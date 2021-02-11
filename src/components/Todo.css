@@ -1,8 +1,3 @@
-.notCompleted,
-.completed {
-  border: 2px solid black;
-}
-
 .completed {
   text-decoration: line-through;
 }
